@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import VisuallyHidden from './visually-hidden';
 
-type Palette = {
+export type PaletteData = {
   name: string;
   colors: string[];
   plz: string;
@@ -12,7 +12,7 @@ type Palette = {
 };
 
 type PaletteProps = {
-  palette: Palette;
+  palette: PaletteData;
 };
 
 const Palette: FC<PaletteProps> = ({ palette }) => (
@@ -38,6 +38,12 @@ const Palette: FC<PaletteProps> = ({ palette }) => (
         transition: box-shadow 300ms ease;
         &:hover {
           box-shadow: inset 0 0 0 3px currentColor;
+        }
+        &:focus {
+          outline: none;
+        }
+        &.focus-visible {
+          border: 2px solid currentColor;
         }
       `}
     >
