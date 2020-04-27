@@ -29,28 +29,40 @@ const Header: FC<HeaderProps> = ({ theme, setTheme }) => (
               &:visited {
                 color: inherit;
               }
+              &.focus-visible {
+                outline: 2px solid currentColor;
+              }
             `}
           >
             colors.berlin
           </Link>
           <div
             css={css`
-              display: flex;
-              & button {
-                background: none;
-                outline: none;
-                border: none;
-                padding: 0;
-                color: inherit;
-                &:not(:disabled) {
-                  cursor: pointer;
+                display: flex;
+                & button {
+                  background: none;
+                  outline: none;
+                  border: none;
+                  padding: 0;
+                  color: inherit;
+                  &:not(:disabled) {
+                    cursor: pointer;
+                  }
+                  &.focus-visible {
+                      outline: 2px solid currentColor;
+                    }
+                  }
                 }
-              }
-            `}
+              `}
           >
             <button
               css={css`
-                text-decoration: ${theme === 'light' ? 'line-through' : 'none'};
+                .light & {
+                  text-decoration: line-through;
+                }
+                .dark & {
+                  text-decoration: none;
+                }
               `}
               disabled={theme === 'light'}
               onClick={() => setTheme('light')}
@@ -64,7 +76,12 @@ const Header: FC<HeaderProps> = ({ theme, setTheme }) => (
             </span>
             <button
               css={css`
-                text-decoration: ${theme === 'dark' ? 'line-through' : 'none'};
+                .light & {
+                  text-decoration: none;
+                }
+                .dark & {
+                  text-decoration: line-through;
+                }
               `}
               disabled={theme === 'dark'}
               onClick={() => setTheme('dark')}
