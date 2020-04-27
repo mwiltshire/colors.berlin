@@ -1,7 +1,10 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
-
-// You can delete this file if you're not using it
+export const onClientEntry = () => {
+  const preferredTheme = localStorage.getItem('__colorsberlin_theme');
+  if (preferredTheme) {
+    window.__theme = preferredTheme;
+  } else {
+    window.__theme = window.matchMedia('(prefers-color-scheme: dark)')
+      ? 'dark'
+      : 'light';
+  }
+};

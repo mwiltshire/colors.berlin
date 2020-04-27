@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Lohmühlenstraße",
+    "colors": ["#3A68B9", "#363E59", "#88AEC5", "#80815A", "#E7BDC7"],
+    "plz": "12435",
+    "district": "Alt-Treptow",
+    "slug": "lohmuehlenstrasse"
+  },
+  {
+    "name": "Forster Straße",
+    "colors": ["#8B4D3A", "#1B323A", "#ACBBAE", "#625A4C", "#95A0B0"],
+    "plz": "10999",
+    "district": "Kreuzberg",
+    "slug": "forster-strasse"
+  },
+  {
+    "name": "Reuterplatz",
+    "colors": ["#282B1F", "#E2D1B5", "#AAAEA4", "#EAB79B", "#538082"],
+    "plz": "12047",
+    "district": "Neukölln",
+    "slug": "reuterplatz"
+  },
+  {
+    "name": "Paul-Lincke-Ufer",
+    "colors": ["#CD7667", "#342D26", "#857F50", "#92A964", "#5381CD"],
+    "plz": "10999",
+    "district": "Kreuzberg",
+    "slug": "paul-lincke-ufer"
+  },
+  {
+    "name": "Wiener Straße",
+    "colors": ["#C3D0E4", "#AAB8CB", "#96A4BD", "#4D5059", "#8E949D"],
+    "plz": "10999",
+    "district": "Kreuzberg",
+    "slug": "wiener-strasse"
+  },
+  {
+    "name": "Hobrecht Brücke",
+    "colors": ["#90ADCB", "#D3C0B5", "#DECAAE", "#E6CE60", "#969A6F"],
+    "plz": "12047",
+    "district": "Neukölln",
+    "slug": "hobrecht-bruecke"
+  },
+  {
+    "name": "Reichenberger Straße",
+    "colors": ["#E9DCD0", "#B09062", "#8D9F9C", "#575B5E", "#999185"],
+    "plz": "10999",
+    "district": "Kreuzberg",
+    "slug": "reichenberger-strasse"
+  },
+  {
+    "name": "Friedelstraße",
+    "colors": ["#667F69", "#F6E7BC", "#EDC98C", "#8D9799", "#C87266"],
+    "plz": "12047",
+    "district": "Neukölln",
+    "slug": "friedelstrasse"
+  },
+  {
+    "name": "Sorauer Straße",
+    "colors": ["#C99C89", "#A7C796", "#F0E1C4", "#BEC6C4", "#CDE2DD"],
+    "plz": "10997",
+    "district": "Kreuzberg",
+    "slug": "sorauer-strasse"
+  },
+  {
+    "name": "Südstern",
+    "colors": ["#F7E483", "#7D2B39", "#DED9D3", "#FF9F69", "#BC8DA0"],
+    "plz": "10961",
+    "district": "Kreuzberg",
+    "slug": "suedstern"
+  },
+  {
+    "name": "Marheinekeplatz",
+    "colors": ["#F9834E", "#A76257", "#EAD0D1", "#81A684", "#4A2C2A"],
+    "plz": "10961",
+    "district": "Kreuzberg",
+    "slug": "marheinekeplatz"
+  },
+  {
+    "name": "Viktoriapark",
+    "colors": ["#A69CF0", "#945395", "#8EA078", "#FEC6A4", "#F8EB72"],
+    "plz": "10965",
+    "district": "Kreuzberg",
+    "slug": "viktoriapark"
+  },
+  {
+    "name": "Sterni",
+    "colors": ["#E9503F", "#1F4E3E", "#EFF2FA", "#292426", "#F4CF48"],
+    "plz": "12045",
+    "district": "Neukölln",
+    "slug": "sterni"
+  },
+  {
+    "name": "Mittenwalder Straße",
+    "colors": ["#245EA0", "#FAF0D8", "#FADFA1", "#C3CFDB", "#DA7070"],
+    "plz": "10961",
+    "district": "Kreuzberg",
+    "slug": "mittenwalder-strasse"
+  },
+  {
+    "name": "Bergmannstraße",
+    "colors": ["#89534C", "#FFFBF7", "#A63446", "#D4DEEA", "#90769E"],
+    "plz": "10961",
+    "district": "Kreuzberg",
+    "slug": "bergmannstrasse"
+  }
+]
