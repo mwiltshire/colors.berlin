@@ -1,7 +1,15 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path');
+const data = require('./src/data/palettes.json');
 
-// You can delete this file if you're not using it
+exports.createPages = ({ actions }) => {
+  const { createPage } = actions;
+  data.forEach(palette => {
+    createPage({
+      path: palette.slug,
+      component: path.resolve('./src/templates/palette-post.tsx'),
+      context: {
+        slug: palette.slug
+      }
+    });
+  });
+};
