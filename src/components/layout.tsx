@@ -10,11 +10,15 @@ import { useThemeVariation } from '../hooks';
 
 import 'typeface-josefin-sans';
 
+type LayoutProps = {
+  showFooter?: boolean;
+};
+
 const GlobalStyles = withTheme(({ theme }: { theme: Theme }) => (
   <Global styles={makeGlobalStyles(theme)} />
 ));
 
-const Layout: FC = ({ children }) => {
+const Layout: FC<LayoutProps> = ({ children, showFooter = true }) => {
   const [theme, setTheme] = useThemeVariation();
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -33,17 +37,19 @@ const Layout: FC = ({ children }) => {
       <Container>
         <main>{children}</main>
       </Container>
-      <footer
-        css={css`
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 2rem;
-          font-size: 0.75rem;
-        `}
-      >
-        © whenever colors.berlin
-      </footer>
+      {showFooter && (
+        <footer
+          css={css`
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 2rem;
+            font-size: 0.75rem;
+          `}
+        >
+          © whenever colors.berlin
+        </footer>
+      )}
     </ThemeProvider>
   );
 };
