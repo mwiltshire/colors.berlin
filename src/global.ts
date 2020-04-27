@@ -2,6 +2,9 @@ import { css } from '@emotion/core';
 import { Theme } from './theme';
 
 export const makeGlobalStyles = (theme: Theme) => css`
+  .js-focus-visible :focus:not(.focus-visible) {
+    outline: none;
+  }
   html {
     font-size: 16px;
     -ms-text-size-adjust: 100%;
@@ -9,10 +12,8 @@ export const makeGlobalStyles = (theme: Theme) => css`
   }
   body {
     margin: 0;
-    background-color: ${theme.background};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    color: ${theme.text};
     font-family: ${theme.fontStack};
     font-weight: 400;
     word-wrap: break-word;
@@ -21,6 +22,14 @@ export const makeGlobalStyles = (theme: Theme) => css`
     -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
     font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+    &.light {
+      color: black;
+      background-color: #fff6de;
+    }
+    &.dark {
+      color: white;
+      background-color: #282828;
+    }
   }
   article,
   aside,
