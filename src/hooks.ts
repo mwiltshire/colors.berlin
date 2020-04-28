@@ -11,9 +11,8 @@ export const useThemeVariation = (): [
   'light' | 'dark',
   (variation: 'light' | 'dark') => void
 ] => {
-  const [variation, setVariation] = useState<'light' | 'dark'>('light');
+  const [variation, setVariation] = useState<'light' | 'dark'>(window.__theme);
   useEffect(() => {
-    setVariation(window.__theme);
     window.__onThemeChange = () => setVariation(window.__theme);
   }, []);
   return [
@@ -25,4 +24,11 @@ export const useThemeVariation = (): [
       setVariation(variation);
     }
   ];
+};
+
+export const useFocusToggle = (): [boolean, () => void, () => void] => {
+  const [focused, setFocused] = useState(false);
+  const handleFocus = () => setFocused(true);
+  const handleBlur = () => setFocused(false);
+  return [focused, handleFocus, handleBlur];
 };
