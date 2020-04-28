@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
-import Layout from '../components/layout';
+import { motion } from 'framer-motion';
 import { Row, Col } from '../components/grid';
 import Palette from '../components/palette';
 // import SEO from '../components/seo';
@@ -39,7 +39,7 @@ type IndexProps = {
 };
 
 const Index: FC<IndexProps> = ({ data }) => (
-  <Layout>
+  <>
     {/* <SEO title="Home" /> */}
     <div
       css={css`
@@ -48,7 +48,17 @@ const Index: FC<IndexProps> = ({ data }) => (
     >
       <Row>
         <Col lg={4}>
-          <h1>Color palettes from Berlin streets</h1>
+          <motion.h1
+            key="home-heading"
+            initial={{ y: 30 }}
+            animate={{
+              y: 0,
+              transition: { duration: 0.5 }
+            }}
+            exit={{ y: -30, opacity: 0, transition: { duration: 0.5 } }}
+          >
+            Color palettes from Berlin streets
+          </motion.h1>
         </Col>
       </Row>
     </div>
@@ -59,7 +69,7 @@ const Index: FC<IndexProps> = ({ data }) => (
         </Col>
       ))}
     </Row>
-  </Layout>
+  </>
 );
 
 export default Index;

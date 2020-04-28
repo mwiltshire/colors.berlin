@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
-import Layout from '../components/layout';
+import { motion } from 'framer-motion';
 import { PaletteData } from '../components/palette';
 import { BP_MIN_LG } from '../components/grid';
 import { isDark } from '../utils/luminance';
@@ -34,7 +34,8 @@ const PalettePost: FC<PalettePostProps> = ({
     }
   }
 }) => (
-  <Layout showFooter={false}>
+  <>
+    {/* <AnimatePresence> */}
     <div
       css={css`
         height: calc(100vh - 3rem);
@@ -47,7 +48,22 @@ const PalettePost: FC<PalettePostProps> = ({
           padding: 9vmin 0;
         `}
       >
-        <h1>{palette.name}</h1>
+        <motion.h1
+          key="palette-heading"
+          initial={{
+            y: 30
+          }}
+          animate={{
+            y: 0,
+            transition: { duration: 0.5 }
+          }}
+          exit={{
+            y: -30,
+            transition: { duration: 0.5 }
+          }}
+        >
+          {palette.name}
+        </motion.h1>
         <ul
           css={css`
             display: flex;
@@ -103,7 +119,8 @@ const PalettePost: FC<PalettePostProps> = ({
         ))}
       </div>
     </div>
-  </Layout>
+    {/* </AnimatePresence> */}
+  </>
 );
 
 export default PalettePost;
