@@ -20,15 +20,16 @@ export const onClientEntry = () => {
   }
 };
 
-export const wrapPageElement = ({ element, props }) => {
-  return props.location === '/' ? (
+export const wrapPageElement = ({ element, props }) =>
+  // The dev 404 will be wrapped in the Layout component.
+  // When clicking through to the custom 404, the layout
+  // will then be duplicated. This is a workaround to avoid
+  // that by not rendering Layout in the dev version.
+  props.pageContext?.layout !== 'dev404' ? (
     <Layout {...props}>{element}</Layout>
   ) : (
-    <Layout showFooter={false} {...props}>
-      {element}
-    </Layout>
+    element
   );
-};
 
 export const shouldUpdateScroll = ({
   routerProps: { location },
