@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
 import { motion } from 'framer-motion';
+import SEO from '../components/seo';
 import { Row, Col } from '../components/grid';
 import Palette from '../components/palette';
-// import SEO from '../components/seo';
 
 export const query = graphql`
   query IndexPageQuery {
@@ -18,8 +18,29 @@ export const query = graphql`
         id
       }
     }
+    site {
+      siteMetadata {
+        title
+      }
+    }
   }
 `;
+
+const duration = 0.7;
+
+const variants = {
+  initial: {
+    y: 30
+  },
+  enter: {
+    y: 0,
+    transition: { duration }
+  },
+  exit: {
+    y: -30,
+    transition: { duration }
+  }
+};
 
 type PaletteData = {
   id: string;
@@ -35,12 +56,17 @@ type IndexProps = {
     allPalettesJson: {
       palettes: PaletteData[];
     };
+    site: {
+      siteMetadata: {
+        title: string;
+      };
+    };
   };
 };
 
 const Index: FC<IndexProps> = ({ data }) => (
   <>
-    {/* <SEO title="Home" /> */}
+    <SEO title={data.site.siteMetadata.title} />
     <div
       css={css`
         padding: 9vmin 0;
@@ -50,12 +76,10 @@ const Index: FC<IndexProps> = ({ data }) => (
         <Col lg={4}>
           <motion.h1
             key="home-heading"
-            initial={{ y: 30 }}
-            animate={{
-              y: 0,
-              transition: { duration: 0.5 }
-            }}
-            exit={{ y: -30, opacity: 0, transition: { duration: 0.5 } }}
+            variants={variants}
+            initial="initial"
+            animate="enter"
+            exit="exit"
           >
             Color palettes from Berlin streets
           </motion.h1>

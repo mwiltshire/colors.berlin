@@ -5,37 +5,44 @@ import { motion } from 'framer-motion';
 import { PaletteData } from '../components/palette';
 import { BP_MIN_LG } from '../components/grid';
 import { isDark } from '../utils/luminance';
+import SEO from '../components/seo';
 
 type PalettePostProps = {
   data: {
-    allPalettesJson: {
-      palettes: Omit<PaletteData, 'slug'>[];
-    };
+    palette: Omit<PaletteData, 'slug'>;
   };
+};
+
+const duration = 0.7;
+
+const variants = {
+  initial: {
+    y: 30
+  },
+  enter: {
+    y: 0,
+    transition: { duration }
+  },
+  exit: {
+    y: -30,
+    transition: { duration }
+  }
 };
 
 export const query = graphql`
   query($slug: String) {
-    allPalettesJson(filter: { slug: { eq: $slug } }) {
-      palettes: nodes {
-        colors
-        district
-        name
-        plz
-      }
+    palette: palettesJson(slug: { eq: $slug }) {
+      colors
+      district
+      name
+      plz
     }
   }
 `;
 
-const PalettePost: FC<PalettePostProps> = ({
-  data: {
-    allPalettesJson: {
-      palettes: [palette]
-    }
-  }
-}) => (
+const PalettePost: FC<PalettePostProps> = ({ data: { palette } }) => (
   <>
-    {/* <AnimatePresence> */}
+    <SEO title={`${palette.name} | colors.berlin`} />
     <div
       css={css`
         height: calc(100vh - 3rem);
@@ -43,27 +50,17 @@ const PalettePost: FC<PalettePostProps> = ({
         flex-direction: column;
       `}
     >
-      <div
+      <motion.div
+        key="palette-title"
+        variants={variants}
+        initial="initial"
+        animate="enter"
+        exit="exit"
         css={css`
           padding: 9vmin 0;
         `}
       >
-        <motion.h1
-          key="palette-heading"
-          initial={{
-            y: 30
-          }}
-          animate={{
-            y: 0,
-            transition: { duration: 0.5 }
-          }}
-          exit={{
-            y: -30,
-            transition: { duration: 0.5 }
-          }}
-        >
-          {palette.name}
-        </motion.h1>
+        <h1>{palette.name}</h1>
         <ul
           css={css`
             display: flex;
@@ -82,7 +79,7 @@ const PalettePost: FC<PalettePostProps> = ({
           <li>{palette.plz}</li>
           <li>{palette.district}</li>
         </ul>
-      </div>
+      </motion.div>
       <div
         css={css`
           display: flex;
@@ -119,7 +116,6 @@ const PalettePost: FC<PalettePostProps> = ({
         ))}
       </div>
     </div>
-    {/* </AnimatePresence> */}
   </>
 );
 
