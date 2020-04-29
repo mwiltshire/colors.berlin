@@ -9,8 +9,9 @@ const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
 module.exports = {
   siteMetadata: {
-    title: 'colors.berlin',
-    description: 'Color palettes from Berlin streets',
+    title: 'colors.berlin | color palettes from Berlin streets',
+    description:
+      'A collection of color palettes inspired by poorly taken photographs from around Berlin',
     canonicalUrl: siteUrl
   },
   plugins: [
