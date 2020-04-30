@@ -11,8 +11,9 @@ export const useThemeVariation = (): [
   'light' | 'dark',
   (variation: 'light' | 'dark') => void
 ] => {
-  const [variation, setVariation] = useState<'light' | 'dark'>(window.__theme);
+  const [variation, setVariation] = useState<'light' | 'dark'>('light');
   useEffect(() => {
+    setVariation(window.__theme);
     window.__onThemeChange = () => setVariation(window.__theme);
   }, []);
   return [
