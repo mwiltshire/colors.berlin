@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
-import { motion } from 'framer-motion';
 import { PaletteData } from '../components/palette';
 import { BP_MIN_LG } from '../components/grid';
 import { isDark } from '../utils/luminance';
@@ -11,22 +10,6 @@ type PalettePostProps = {
   data: {
     palette: Omit<PaletteData, 'slug'>;
   };
-};
-
-const duration = 0.7;
-
-const variants = {
-  initial: {
-    y: 30
-  },
-  enter: {
-    y: 0,
-    transition: { duration }
-  },
-  exit: {
-    y: -30,
-    transition: { duration }
-  }
 };
 
 export const query = graphql`
@@ -50,12 +33,7 @@ const PalettePost: FC<PalettePostProps> = ({ data: { palette } }) => (
         flex-direction: column;
       `}
     >
-      <motion.div
-        key="palette-title"
-        variants={variants}
-        initial="initial"
-        animate="enter"
-        exit="exit"
+      <div
         css={css`
           padding: 9vmin 0;
         `}
@@ -79,7 +57,7 @@ const PalettePost: FC<PalettePostProps> = ({ data: { palette } }) => (
           <li>{palette.plz}</li>
           <li>{palette.district}</li>
         </ul>
-      </motion.div>
+      </div>
       <div
         css={css`
           display: flex;
@@ -100,14 +78,20 @@ const PalettePost: FC<PalettePostProps> = ({ data: { palette } }) => (
             color: ${isDark(color) ? '#fff' : '#000'};
             font-size: 0.9rem;
             padding: 2vmin;
-            &:first-of-type {
-              flex: 2.5;
-            }
+            flex: 1;
             &:last-of-type {
-              flex 1.75;
+              flex 3;
             }
-            &:not(:first-of-type):not(:last-of-type) {
+            &:first-of-type {
               flex: 1;
+            }
+            ${BP_MIN_LG} {
+              &:first-of-type {
+                flex: 2.5;
+              }
+              &:last-of-type {
+                flex 1.75;
+              }
             }
           `}
           >

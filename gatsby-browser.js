@@ -30,16 +30,3 @@ export const wrapPageElement = ({ element, props }) =>
   ) : (
     element
   );
-
-export const shouldUpdateScroll = ({
-  routerProps: { location },
-  getSavedScrollPosition
-}) => {
-  if (location.action === 'PUSH') {
-    window.setTimeout(() => window.scrollTo(0, 0), 800);
-  } else {
-    const savedPosition = getSavedScrollPosition(location);
-    window.setTimeout(() => window.scrollTo(...(savedPosition || [0, 0])), 800);
-  }
-  return false;
-};
