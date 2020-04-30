@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import VisuallyHidden from './visually-hidden';
+import Tags from './tags';
 
 export type PaletteData = {
   name: string;
@@ -64,14 +65,12 @@ const Palette: FC<PaletteProps> = ({ palette }) => (
           css={css`
             height: 100%;
             background-color: ${color};
+            flex: 1;
             &:first-of-type {
               flex: 2.5;
             }
             &:last-of-type {
               flex 1.75;
-            }
-            &:not(:first-of-type):not(:last-of-type) {
-              flex: 1;
             }
           `}
         />
@@ -84,21 +83,7 @@ const Palette: FC<PaletteProps> = ({ palette }) => (
     >
       {palette.name}
     </p>
-    <ul
-      css={css`
-        display: flex;
-        flex-direction: row;
-        list-style: none;
-        margin: 0;
-        font-size: 0.75rem;
-        & li {
-          margin: 0 0.5rem 0 0;
-        }
-      `}
-    >
-      <li>{palette.plz}</li>
-      <li>{palette.district}</li>
-    </ul>
+    <Tags tagList={[palette.plz, palette.district]} />
   </div>
 );
 
