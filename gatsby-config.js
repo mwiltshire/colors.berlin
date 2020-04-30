@@ -30,10 +30,10 @@ module.exports = {
         name: 'colors.berlin',
         short_name: 'colors.berlin',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#FFF6DE',
+        theme_color: '#FFF6DE',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png'
+        icon: 'src/images/colors-berlin-icon.png'
       }
     },
     {
