@@ -1,10 +1,14 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
+import { useTheme } from 'emotion-theming';
 import { graphql } from 'gatsby';
 import { PaletteData } from '../components/palette';
 import { BP_MIN_LG } from '../components/grid';
 import { isDark } from '../utils/luminance';
 import SEO from '../components/seo';
+import Heading from '../components/heading';
+import Tags from '../components/tags';
+import { Theme } from '../theme';
 
 type PalettePostProps = {
   data: {
@@ -23,84 +27,70 @@ export const query = graphql`
   }
 `;
 
-const PalettePost: FC<PalettePostProps> = ({ data: { palette } }) => (
-  <>
-    <SEO title={`${palette.name} | colors.berlin`} />
-    <div
-      css={css`
-        height: calc(100vh - 3rem);
-        display: flex;
-        flex-direction: column;
-      `}
-    >
+const PalettePost: FC<PalettePostProps> = ({ data: { palette } }) => {
+  const theme = useTheme<Theme>();
+  return (
+    <>
+      <SEO title={`${palette.name} | colors.berlin`} />
       <div
         css={css`
-          padding: 9vmin 0;
-        `}
-      >
-        <h1>{palette.name}</h1>
-        <ul
-          css={css`
-            display: flex;
-            flex-direction: row;
-            list-style: none;
-            margin: 0;
-            font-size: 0.75rem;
-            & li {
-              margin: 0 0.5rem 0 0;
-              padding: 0.1rem 0.4rem;
-              border: 1px solid currentColor;
-              border-radius: 2px;
-            }
-          `}
-        >
-          <li>{palette.plz}</li>
-          <li>{palette.district}</li>
-        </ul>
-      </div>
-      <div
-        css={css`
+          height: calc(100vh - 3rem);
           display: flex;
           flex-direction: column;
-          ${BP_MIN_LG} {
-            flex-direction: row;
-          }
-          flex: 1;
-          margin: 0 -2vmin;
         `}
       >
-        {palette.colors.map(color => (
-          <div
-            key={color}
-            css={css`
-            height: 100%;
-            background-color: ${color};
-            color: ${isDark(color) ? '#fff' : '#000'};
-            font-size: 0.9rem;
-            padding: 2vmin;
-            flex: 1;
-            &:last-of-type {
-              flex 3;
-            }
-            &:first-of-type {
-              flex: 1;
-            }
-            ${BP_MIN_LG} {
-              &:first-of-type {
-                flex: 2.5;
-              }
-              &:last-of-type {
-                flex 1.75;
-              }
-            }
+        <div
+          css={css`
+            padding: 7vmin 0;
           `}
-          >
-            {color}
-          </div>
-        ))}
+        >
+          <Heading>{palette.name}</Heading>
+          <Tags tagList={[palette.plz, palette.district]} border />
+        </div>
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            ${BP_MIN_LG} {
+              flex-direction: row;
+            }
+            flex: 1;
+            margin: 0 -2vmin;
+          `}
+        >
+          {palette.colors.map(color => (
+            <div
+              key={color}
+              css={css`
+                height: 100%;
+                background-color: ${color};
+                color: ${isDark(color) ? theme.white : theme.black};
+                font-size: ${theme.fontSizes.sm};
+                padding: 2vmin;
+                flex: 1;
+                &:last-of-type {
+                  flex 3;
+                }
+                &:first-of-type {
+                  flex: 1;
+                }
+                ${BP_MIN_LG} {
+                  &:first-of-type {
+                    flex: 2.5;
+                  }
+                  &:last-of-type {
+                    flex 1.75;
+                  }
+                }
+              `}
+            >
+              {color}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  </>
-);
+    </>
+  );
+};
 
 export default PalettePost;

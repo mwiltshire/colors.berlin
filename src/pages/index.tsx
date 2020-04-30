@@ -2,8 +2,9 @@ import React, { FC } from 'react';
 import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
 import SEO from '../components/seo';
-import { Row, Col, BP_MIN_LG } from '../components/grid';
+import { Row, Col } from '../components/grid';
 import Palette from '../components/palette';
+import Heading from '../components/heading';
 
 export const query = graphql`
   query IndexPageQuery {
@@ -52,17 +53,13 @@ const Index: FC<IndexProps> = ({ data }) => (
     <SEO title={data.site.siteMetadata.title} />
     <Row>
       <Col lg={4}>
-        <h1
+        <Heading
           css={css`
-            padding: 9vmin 0;
-            font-size: 2rem;
-            ${BP_MIN_LG} {
-              font-size: 2.5rem;
-            }
+            padding: 2vmin 0;
           `}
         >
           Color palettes from Berlin streets
-        </h1>
+        </Heading>
       </Col>
     </Row>
     <Row>
