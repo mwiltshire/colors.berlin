@@ -84,11 +84,11 @@
     "slug": "viktoriapark"
   },
   {
-    "name": "Sterni",
-    "colors": ["#E9503F", "#1F4E3E", "#EFF2FA", "#292426", "#F4CF48"],
-    "plz": "12045",
+    "name": "Manitiusstraße",
+    "colors": ["#EFF6FF", "#FFEEE0", "#EFDCBB", "#DB8866", "#584338"],
+    "plz": "12047",
     "district": "Neukölln",
-    "slug": "sterni"
+    "slug": "manitusstrasse"
   },
   {
     "name": "Mittenwalder Straße",

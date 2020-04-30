@@ -17,7 +17,7 @@ type NotFoundProps = {
 
 export const query = graphql`
   query NotFoundQuery {
-    palette: palettesJson(name: { eq: "Sterni" }) {
+    palette: specialJson(name: { eq: "Sterni" }) {
       colors
       district
       name
