@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { css, Global } from '@emotion/core';
 import { ThemeProvider, withTheme } from 'emotion-theming';
-import { motion, AnimatePresence } from 'framer-motion';
 import Header from './header';
 import { makeGlobalStyles } from '../global';
 import { Theme, light, dark } from '../theme';
