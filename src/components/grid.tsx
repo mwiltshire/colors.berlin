@@ -43,7 +43,7 @@ export const Col: FC<ColProps> = ({
   mdOffset = 0,
   lgOffset = 0,
   xlOffset = 0,
-  children = 0
+  children
 }) => {
   const media: { [k: string]: string } = {
     sm: BP_MIN_SM,
@@ -58,7 +58,6 @@ export const Col: FC<ColProps> = ({
     lg: lgOffset,
     xl: xlOffset
   };
-
   return (
     <div
       css={css`
