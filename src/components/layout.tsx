@@ -3,7 +3,7 @@ import { css, Global } from '@emotion/core';
 import { ThemeProvider, withTheme } from 'emotion-theming';
 import Header from './header';
 import { makeGlobalStyles } from '../global';
-import { Theme, light, dark } from '../theme';
+import { Theme, light, dark, global } from '../theme';
 import Container from './container';
 import { useThemeVariation } from '../hooks';
 
@@ -21,10 +21,13 @@ const GlobalStyles = withTheme(({ theme }: { theme: Theme }) => (
 ));
 
 const Layout: FC<LayoutProps> = ({ children, pageContext }) => {
-  const [theme, setTheme] = useThemeVariation();
+  const [themeVariation, setThemeVariation] = useThemeVariation();
   return (
-    <ThemeProvider theme={theme === 'light' ? light : dark}>
-      <Header theme={theme} setTheme={setTheme} />
+    // TODO: The only things being accessed in this theme context are
+    // elements that both light/dark themes shared. This could be made
+    // a bit clearer.
+    <ThemeProvider theme={themeVariation === 'light' ? light : dark}>
+      <Header theme={themeVariation} setTheme={setThemeVariation} />
       <GlobalStyles />
       <main>
         <Container>{children}</Container>
@@ -35,8 +38,8 @@ const Layout: FC<LayoutProps> = ({ children, pageContext }) => {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 2rem;
-            font-size: 0.75rem;
+            height: 3rem;
+            font-size: ${global.fontSizes.xs};
           `}
         >
           <span>

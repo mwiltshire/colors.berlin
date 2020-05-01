@@ -28,7 +28,7 @@ export type Theme = {
   };
 };
 
-const global = {
+export const global = {
   black: '#000',
   white: '#fff',
   fontStack:
