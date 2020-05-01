@@ -8,10 +8,10 @@ declare global {
 }
 
 export const useThemeVariation = (): [
-  'light' | 'dark',
+  'light' | 'dark' | null,
   (variation: 'light' | 'dark') => void
 ] => {
-  const [variation, setVariation] = useState<'light' | 'dark'>('light');
+  const [variation, setVariation] = useState<'light' | 'dark' | null>(null);
   useEffect(() => {
     setVariation(window.__theme);
     window.__onThemeChange = () => setVariation(window.__theme);
@@ -19,7 +19,7 @@ export const useThemeVariation = (): [
   return [
     variation,
     (variation: 'light' | 'dark') => {
-      localStorage.setItem('__colorsberlin_theme', variation);
+      localStorage.setItem('theme', variation);
       document.body.className = variation;
       window.__theme = variation;
       setVariation(variation);

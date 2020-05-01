@@ -5,7 +5,7 @@ import Container from './container';
 import ThemeSelector from './theme-selector';
 
 type HeaderProps = {
-  theme: 'light' | 'dark';
+  theme: 'light' | 'dark' | null;
   setTheme: (theme: 'light' | 'dark') => void;
 };
 
@@ -41,7 +41,9 @@ const Header: FC<HeaderProps> = ({ theme, setTheme }) => (
           >
             colors.berlin
           </Link>
-          <ThemeSelector theme={theme} setTheme={setTheme} />
+          {theme !== null && (
+            <ThemeSelector theme={theme} setTheme={setTheme} />
+          )}
         </div>
       </Container>
     </nav>
