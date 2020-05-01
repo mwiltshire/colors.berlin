@@ -27,6 +27,7 @@ const Header: FC<HeaderProps> = ({ theme, setTheme }) => (
             css={css`
               text-decoration: none;
               user-select: none;
+              color: inherit;
               &:visited {
                 color: inherit;
               }
