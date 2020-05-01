@@ -18,7 +18,7 @@ const Heading: FC<HeadingProps> = ({ children, size = 'normal', ...props }) => {
           : theme.fontSizes['2xl']};
         ${BP_MIN_LG} {
           font-size: ${size === 'large'
-            ? theme.fontSizes['6xl']
+            ? theme.fontSizes['5xl']
             : theme.fontSizes['4xl']};
         }
       `}
