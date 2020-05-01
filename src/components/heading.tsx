@@ -5,7 +5,7 @@ import { BP_MIN_LG } from '../components/grid';
 import { Theme } from '../theme';
 
 type HeadingProps = {
-  size: 'normal' | 'large';
+  size?: 'normal' | 'large';
 };
 
 const Heading: FC<HeadingProps> = ({ children, size = 'normal', ...props }) => {
