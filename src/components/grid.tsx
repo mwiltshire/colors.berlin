@@ -25,8 +25,8 @@ export const Row: FC = ({ children }) => {
         flex: 0 1 auto;
         flex-direction: row;
         flex-wrap: wrap;
-        margin-left: -15px;
-        margin-right: -15px;
+        margin-left: -2vmin;
+        margin-right: -2vmin;
       `}
     >
       {children}
@@ -63,8 +63,8 @@ export const Col: FC<ColProps> = ({
       css={css`
         display: block;
         flex: 0 0 100%;
-        padding-right: 15px;
-        padding-left: 15px;
+        padding-right: 2vmin;
+        padding-left: 2vmin;
         ${Object.entries(dimensions)
           .filter(([, value]) => Boolean(value))
           .map(([breakpoint, value]) => {

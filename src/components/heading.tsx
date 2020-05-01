@@ -4,14 +4,22 @@ import { useTheme } from 'emotion-theming';
 import { BP_MIN_LG } from '../components/grid';
 import { Theme } from '../theme';
 
-const Heading: FC = ({ children, ...props }) => {
+type HeadingProps = {
+  size: 'normal' | 'large';
+};
+
+const Heading: FC<HeadingProps> = ({ children, size = 'normal', ...props }) => {
   const theme = useTheme<Theme>();
   return (
     <h1
       css={css`
-        font-size: ${theme.fontSizes.lg};
+        font-size: ${size === 'large'
+          ? theme.fontSizes['4xl']
+          : theme.fontSizes['2xl']};
         ${BP_MIN_LG} {
-          font-size: ${theme.fontSizes['4xl']};
+          font-size: ${size === 'large'
+            ? theme.fontSizes['6xl']
+            : theme.fontSizes['4xl']};
         }
       `}
       {...props}

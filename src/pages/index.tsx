@@ -54,6 +54,7 @@ const Index: FC<IndexProps> = ({ data }) => (
     <Row>
       <Col lg={4}>
         <Heading
+          size="large"
           css={css`
             padding: 2vmin 0;
           `}
