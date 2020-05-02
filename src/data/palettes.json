@@ -103,5 +103,19 @@
     "plz": "10961",
     "district": "Kreuzberg",
     "slug": "bergmannstrasse"
+  },
+  {
+    "name": "Silbersteinstraße",
+    "colors": ["#D5DFD5", "#F4E5C8", "#8C271E", "#474056", "#9A7374"],
+    "plz": "12051",
+    "district": "Neukölln",
+    "slug": "silbersteinstrasse"
+  },
+  {
+    "name": "Schierker Straße",
+    "colors": ["#C1705F", "#F0EDE6", "#B7C3F3", "#DD7596", "#5C5D5F"],
+    "plz": "12051",
+    "district": "Neukölln",
+    "slug": "schierker-strasse"
   }
 ]
