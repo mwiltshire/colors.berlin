@@ -117,5 +117,12 @@
     "plz": "12051",
     "district": "Neukölln",
     "slug": "schierker-strasse"
+  },
+  {
+    "name": "Manteuffelstraße",
+    "colors": ["#DD9A9C", "#E8F3F5", "#7AAAA0", "#F6E7B0", "#FFCDB2"],
+    "plz": "10999",
+    "district": "Kreuzberg",
+    "slug": "manteuffelstraße"
   }
 ]
