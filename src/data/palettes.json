@@ -145,5 +145,12 @@
     "plz": "12049",
     "district": "Neukölln",
     "slug": "herrfurthplatz"
+  },
+  {
+    "name": "Holzmannstraße",
+    "colors": ["#8DB38B", "#FEC0B3", "#CEA0AE", "#E6FAFC", "#EE6055"],
+    "plz": "12099",
+    "district": "Tempelhof",
+    "slug": "holzmannstrasse"
   }
 ]
