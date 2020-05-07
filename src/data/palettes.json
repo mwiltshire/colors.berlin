@@ -123,6 +123,27 @@
     "colors": ["#DD9A9C", "#E8F3F5", "#7AAAA0", "#F6E7B0", "#FFCDB2"],
     "plz": "10999",
     "district": "Kreuzberg",
-    "slug": "manteuffelstraße"
+    "slug": "manteuffelstrasse"
+  },
+  {
+    "name": "Tempelhofer Feld",
+    "colors": ["#849DBB", "#BD8DD3", "#F55D2D", "#FFA659", "#FCC861"],
+    "plz": "12101",
+    "district": "Tempelhof",
+    "slug": "tempelhofer-feld"
+  },
+  {
+    "name": "Flughafenstraße",
+    "colors": ["#F07180", "#B2D039", "#FED74B", "#7DBAD6", "#5E4F8A"],
+    "plz": "12053",
+    "district": "Neukölln",
+    "slug": "flughafenstrasse"
+  },
+  {
+    "name": "Herrfurthplatz",
+    "colors": ["#208596", "#FFF4E4", "#B0C8EA", "#984447", "#397367"],
+    "plz": "12049",
+    "district": "Neukölln",
+    "slug": "herrfurthplatz"
   }
 ]
