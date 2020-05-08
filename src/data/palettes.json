@@ -126,13 +126,6 @@
     "slug": "manteuffelstrasse"
   },
   {
-    "name": "Tempelhofer Feld",
-    "colors": ["#849DBB", "#BD8DD3", "#F55D2D", "#FFA659", "#FCC861"],
-    "plz": "12101",
-    "district": "Tempelhof",
-    "slug": "tempelhofer-feld"
-  },
-  {
     "name": "Flughafenstraße",
     "colors": ["#F07180", "#B2D039", "#FED74B", "#7DBAD6", "#5E4F8A"],
     "plz": "12053",
