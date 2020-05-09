@@ -145,5 +145,12 @@
     "plz": "12099",
     "district": "Tempelhof",
     "slug": "holzmannstrasse"
+  },
+  {
+    "name": "Fraenkelufer",
+    "colors": ["#E30031", "#14342B", "#ECE5F0", "#F3BF53", "#D5B5CD"],
+    "plz": "10999",
+    "district": "Kreuzberg",
+    "slug": "fraenkelufer"
   }
 ]
