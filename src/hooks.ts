@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 declare global {
   interface Window {
@@ -32,4 +32,23 @@ export const useFocusToggle = (): [boolean, () => void, () => void] => {
   const handleFocus = () => setFocused(true);
   const handleBlur = () => setFocused(false);
   return [focused, handleFocus, handleBlur];
+};
+
+export const useCopyColor = (
+  copyFunction: (arg: string) => void
+): [boolean, (text: string) => void] => {
+  const [isCopied, setIsCopied] = useState(false);
+  const copyRef = useRef<number | null>(null);
+  const handleCopy = (text: string) => {
+    if (typeof copyRef.current === 'number') {
+      window.clearTimeout(copyRef.current);
+    }
+    copyFunction(text);
+    setIsCopied(true);
+    copyRef.current = window.setTimeout(() => {
+      setIsCopied(false);
+      copyRef.current = null;
+    }, 3000);
+  };
+  return [isCopied, handleCopy];
 };

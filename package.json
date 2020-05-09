@@ -6,6 +6,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "copy-text-to-clipboard": "^2.2.0",
     "emotion-theming": "^10.0.27",
     "focus-visible": "^5.1.0",
     "framer-motion": "^1.10.3",
