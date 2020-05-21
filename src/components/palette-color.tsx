@@ -13,11 +13,21 @@ type PaletteColorProps = {
   color: string;
 };
 
+const variants = {
+  initial: { opacity: 0, y: '20%' },
+  enter: {
+    opacity: 1,
+    y: 0,
+    transition: { mass: 10 }
+  }
+};
+
 const PaletteColor: FC<PaletteColorProps> = ({ color }) => {
   const theme = useTheme<Theme>();
   const [isCopied, handleCopy] = useCopyColor(copy);
   return (
-    <div
+    <motion.div
+      variants={variants}
       key={color}
       css={css`
       height: 100%;
@@ -133,7 +143,7 @@ const PaletteColor: FC<PaletteColorProps> = ({ color }) => {
           </button>
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -7,6 +7,7 @@ import SEO from '../components/seo';
 import Heading from '../components/heading';
 import Tags from '../components/tags';
 import PaletteColor from '../components/palette-color';
+import { motion } from 'framer-motion';
 
 type PalettePostProps = {
   data: {
@@ -25,6 +26,21 @@ export const query = graphql`
   }
 `;
 
+const variants = {
+  initial: {
+    opacity: 0
+  },
+  enter: {
+    opacity: 1,
+    transition: { staggerChildren: 0.07 }
+  }
+};
+
+const headingVariants = {
+  initial: { opacity: 0, y: '20%' },
+  enter: { opacity: 1, y: 0, transition: { mass: 10 } }
+};
+
 const PalettePost: FC<PalettePostProps> = ({ data: { palette } }) => (
   <>
     <SEO title={`${palette.name} | colors.berlin`} />
@@ -35,15 +51,21 @@ const PalettePost: FC<PalettePostProps> = ({ data: { palette } }) => (
         flex-direction: column;
       `}
     >
-      <div
+      <motion.div
+        variants={headingVariants}
+        initial="initial"
+        animate="enter"
         css={css`
           padding: 7vmin 0;
         `}
       >
         <Heading>{palette.name}</Heading>
         <Tags tagList={[palette.plz, palette.district]} border />
-      </div>
-      <div
+      </motion.div>
+      <motion.div
+        variants={variants}
+        initial="initial"
+        animate="enter"
         css={css`
           display: flex;
           flex-direction: column;
@@ -57,7 +79,7 @@ const PalettePost: FC<PalettePostProps> = ({ data: { palette } }) => (
         {palette.colors.map(color => (
           <PaletteColor key={color} color={color} />
         ))}
-      </div>
+      </motion.div>
     </div>
   </>
 );

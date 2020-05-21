@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { css } from '@emotion/core';
 import { graphql } from 'gatsby';
+import { motion } from 'framer-motion';
 import SEO from '../components/seo';
 import { Row, Col } from '../components/grid';
 import Palette from '../components/palette';
@@ -48,28 +49,47 @@ type IndexProps = {
   };
 };
 
+const variants = {
+  initial: {
+    opacity: 0
+  },
+  enter: {
+    opacity: 1,
+    transition: { staggerChildren: 0.07 }
+  }
+};
+
+const headingVariants = {
+  initial: { opacity: 0, y: '20%' },
+  enter: { opacity: 1, y: 0, transition: { mass: 10 } }
+};
+
 const Index: FC<IndexProps> = ({ data }) => (
   <>
     <SEO title={data.site.siteMetadata.title} />
-    <Row>
-      <Col lg={4}>
-        <Heading
-          size="large"
-          css={css`
-            padding: 2vmin 0;
-          `}
-        >
-          Color palettes from Berlin streets
-        </Heading>
-      </Col>
-    </Row>
-    <Row>
-      {data.allPalettesJson.palettes.map(({ id, ...restPalette }) => (
-        <Col key={id} md={6} lg={4}>
-          <Palette palette={restPalette} />
+    <motion.div variants={headingVariants} initial="initial" animate="enter">
+      <Row>
+        <Col lg={4}>
+          <Heading
+            size="large"
+            css={css`
+              padding: 2vmin 0;
+            `}
+          >
+            Color palettes from Berlin streets
+          </Heading>
         </Col>
-      ))}
-    </Row>
+      </Row>
+    </motion.div>
+    <motion.div variants={variants} initial="initial" animate="enter">
+      <Row>
+        {data.allPalettesJson.palettes.map(({ id, ...restPalette }) => (
+          <Col key={id} md={6} lg={4}>
+            <Palette palette={restPalette} />
+          </Col>
+        ))}
+      </Row>
+    </motion.div>
   </>
 );
 
